@@ -1,0 +1,52 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover,
+a:active {
+  color: #6ED3A7;
+}
+
+.nav-caption {
+  display: inline-block;
+  padding-left: 6px;
+  font-family: "Quicksand";
+}
+
+.side-nave-list {
+  background: rgb(34, 135, 177);
+  background: linear-gradient(
+    180deg,
+    rgba(34, 135, 177, 1) 0%,
+    rgba(34, 135, 177, 1) 49%,
+    rgba(63, 184, 227, 1) 100%
+  );
+  height: 100%;
+}
+
+.item-menu {
+  color: white;
+}
+
+.item-menu:hover {
+  color: #6ED3A7;
+}
+
+.logo{
+color:white;    
+text-align: center;
+height: 45px;
+}
+
+.menu-separator{
+  color: rgb(32, 94, 128);
+  height: 1px;
+  border: 1 px solid;
+}
+
+.img-logo{
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}

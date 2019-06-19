@@ -1,0 +1,36 @@
+<div class="text-center">
+  <h3 class="text">{{ "ADMINISTRACION_METODOS_API" | translate }}</h3>
+  <h5 class="subtext">{{ "ADMINISTRACION_METODOS_API_DESC" | translate }}</h5>
+</div>
+<app-filters></app-filters>
+<div *ngIf="isLoadingResults" style="padding:10px">
+  <mat-spinner class="centered"></mat-spinner>
+</div>
+<h3 class="text">
+  {{ "ROL_SELECCIONADO" | translate }}
+  <span *ngIf="selectedRol$ | async; let rol"  class="subtext">{{ rol.name }} </span>
+  <span *ngIf="!(isRolSelected$ | async)"  class="subtext"> {{ "NO_HAY_ROL_SELECCIONADO" | translate }} </span>
+</h3>
+<button
+  mat-raised-button
+  (click)="submit()"
+  class="action-button"
+  [disabled] = "!(isRolSelected$ | async)"
+  color="primary"
+>
+  {{ "GUARDAR" | translate }}
+</button>
+<app-dx-table
+  (rowDeleted)="onRowDeleted($event)"
+  (selectionRowChanged)="onSelectionRowChanged($event)"
+  [datasource]="Methods$ | async"
+  [filename]="methods"
+  [columns]="columns"
+  [allowUpdating]="false"
+  [allowDeleting]="false"
+  [allowAdding]="false"
+  [allowPaging]="false"
+  columnSelectionMode="multiple"  
+  key="id"
+></app-dx-table>
+

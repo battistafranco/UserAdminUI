@@ -1,0 +1,15 @@
+<!-- <h3 class="text">{{"ALTA_USUARIO" | translate}}</h3> -->
+<!-- <mat-card>Simple card</mat-card> -->
+<div class="text-center">
+  <h3 class="text">{{ "ADMINISTRACION_USUARIOS" | translate }}</h3>
+  <h5 class="subtext">{{ "ADMINISTRACION_USUARIOS_DESC" | translate }}</h5>
+</div>
+<app-filters (selectedRol)="onSelectedRol($event)"></app-filters>
+<div *ngIf="isLoadingResults" style="padding:10px">
+  <mat-spinner class="centered"></mat-spinner>
+</div>
+<app-users-list
+  *ngIf="!isLoadingResults"
+  (rowDeleted)="onRowDeleted($event)"
+  [usuarios]="Users"
+></app-users-list>

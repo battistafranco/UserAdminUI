@@ -1,0 +1,55 @@
+.toolbar {
+  background-color: white;
+  padding: 5px;
+  width: 99%;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  -moz-box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);  
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover,
+a:active {
+  color: lightgray;
+}
+
+.navigation-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+mat-toolbar {
+  border-radius: 3px;
+}
+
+@media (max-width: 959px) {
+  mat-toolbar {
+    border-radius: 0px;
+  }
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.flag {
+  height: 35px;
+  cursor: pointer;
+}
+
+.text {
+  font-family: "Quicksand";
+  color: black;
+}
+
+.btn-menu {
+  color: black;
+}

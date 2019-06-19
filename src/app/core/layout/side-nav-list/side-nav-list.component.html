@@ -1,0 +1,35 @@
+<mat-nav-list
+  [@onSideNavChange]="sideNavState ? 'open' : 'close'"
+  class="side-nave-list"
+>
+  <div class="logo">
+    <img
+      [@animateText]="linkText ? 'show' : 'hide'"
+      src="../../../../assets/images/Logo.png"
+      class="img-logo"
+      height="40"
+    />
+    <img
+      [@animateText]="!linkText ? 'show' : 'hide'"
+      src="../../../../assets/images/LogoOnly.png"
+      class="img-logo"
+      height="40"
+    />
+    <!-- <h4 [@animateText]="linkText ? 'show' : 'hide'" style="font-family: Quicksand">UserAdmin</h4> -->
+    <!-- <h4 [@animateText]="!linkText ? 'show' : 'hide'" style="font-family: Quicksand">UA</h4> -->
+  </div>
+  <mat-divider style="margin-top: 12px;"></mat-divider>
+  <ng-container>
+    <a
+      *ngFor="let menu of menues"
+      mat-list-item
+      routerLink="{{ menu.routerLink }}"
+      class="item-menu"
+    >
+      <mat-icon>{{ menu.icon }}</mat-icon>
+      <span [@animateText]="linkText ? 'show' : 'hide'" class="nav-caption">{{
+        menu.title | translate
+      }}</span>
+    </a>
+  </ng-container>
+</mat-nav-list>

@@ -1,0 +1,96 @@
+/* You can add global styles to this file, and also import other style files */
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import '../node_modules/@angular/material/theming';
+
+@include mat-core();
+
+$md-ap6-primary: (
+  50: #67d9a8,
+  100: #67d9a8,
+  200: #b3ecd4,
+  300: #95e4c2,
+  400: #7edfb5,
+  500: #67d9a8,
+  600: #5fd5a0,
+  700: #54cf97,
+  800: #4aca8d,
+  900: #39c07d,
+  A100: #67d9a8,
+  A200: #d9ffeb,
+  A400: #a6ffd1,
+  A700: #8cffc4,
+  contrast: (
+    50: #FFF,
+    100: #FFF,
+    200: #FFF,
+    300: #FFF,
+    400: #FFF,
+    500: #FFF,
+    600: #FFF,
+    700: #FFF,
+    800: #FFF,
+    900: #FFF,
+    A100: #FFF,
+    A200: #FFF,
+    A400: #FFF,
+    A700: #FFF
+  )
+);
+
+$md-ap6-accent: (
+    50 : #e7f6fc,
+    100 : #c3e8f8,
+    200 : #9bd9f4,
+    300 : #72caf0,
+    400 : #54beec,
+    500 : #36b3e9,
+    600 : #30ace6,
+    700 : #29a3e3,
+    800 : #229adf,
+    900 : #168bd9,
+    A100 : #ffffff,
+    A200 : #d7eeff,
+    A400 : #a4d8ff,
+    A700 : #8bcdff,
+    contrast: (
+        50 : #FFF,
+        100 : #FFF,
+        200 : #FFF,
+        300 : #FFF,
+        400 : #FFF,
+        500 : #FFF,
+        600 : #FFF,
+        700 : #FFF,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #FFF,
+        A200 : #FFF,
+        A400 : #FFF,
+        A700 : #FFF,
+    )
+);
+
+$ap6-primary: mat-palette($md-ap6-primary);
+$ap6-accent:  mat-palette($md-ap6-accent, 500, 900, A100);
+$ap6-warn:    mat-palette($mat-deep-orange);
+
+$ap6-theme: mat-light-theme($ap6-primary, $ap6-accent, $ap6-warn);
+
+@include angular-material-theme($ap6-theme);
+
+
+html {
+    height: 100%;
+    overflow: hidden;    
+}
+
+body {
+    height: 100%;
+    overflow: hidden;  
+    margin: 0;
+}
+
+.mat-drawer-inner-container{
+    overflow: hidden !important;
+}
