@@ -4,5 +4,12 @@ export interface User {
     lastName: string,
     username : string,  
     email : string,    
-    password : string,    
+    password : string,        
+}
+
+
+export interface UserCredentials {
+    id : string,   
+    username : string,      
+    token : string,        
 }

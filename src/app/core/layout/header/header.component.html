@@ -7,36 +7,17 @@
 
   <app-breadcrumb></app-breadcrumb>
   <span class="example-spacer"></span>
+  <!-- <p>
+    <mat-icon style="color:gray" matBadge="15" matBadgeColor="primary">notifications</mat-icon>
+  </p> -->
   <p>
-    <mat-icon style="color:gray" matBadge="15" matBadgeColor="primary"
-      >notifications</mat-icon
-    >
+    <mat-icon (click)="logout()" style="color:gray; cursor: pointer" matBadgeColor="primary">logout</mat-icon>
   </p>
   <span style="margin-left: 25px;">
-    <img
-      src="../../../assets/images/ar.png"
-      (click)="setLang('es')"
-      class="flag"
-      alt="Arg"
-    />
-    <img
-      src="../../../assets/images/uy.png"
-      (click)="setLang('uy')"
-      class="flag"
-      alt="Uy"
-    />
-    <img
-      src="../../../assets/images/py.png"
-      (click)="setLang('py')"
-      class="flag"
-      alt="Py"
-    />
-    <img
-      src="../../../assets/images/us.png"
-      (click)="setLang('en')"
-      class="flag"
-      alt="Us"
-    />
+    <img src="../../../assets/images/ar.png" (click)="setLang('es')" class="flag" alt="Arg" />
+    <img src="../../../assets/images/uy.png" (click)="setLang('uy')" class="flag" alt="Uy" />
+    <img src="../../../assets/images/py.png" (click)="setLang('py')" class="flag" alt="Py" />
+    <img src="../../../assets/images/us.png" (click)="setLang('en')" class="flag" alt="Us" />
   </span>
   <!-- <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
       <ul fxLayout fxLayoutGap="15px" class="navigation-items">

@@ -1,0 +1,35 @@
+<mat-card class="card">
+  <img mat-card-image src="../../../../../assets/images/Logo.png" alt="Logo UserAdmin">
+  <h4 class="card-header text">UserAdmin</h4>
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div>
+        <mat-form-field class="full-width">
+          <input id="username" formControlName="username" matInput type="text"
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Username" />
+        </mat-form-field>
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
+      </div>
+      <div>
+        <mat-form-field class="full-width">
+          <input id="password" formControlName="password" matInput type="password"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password" />
+        </mat-form-field>
+
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
+      </div>
+
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="onSubmit()" class="action-button spinner-border spinner-border-sm mr-1"
+      [disabled]="!loginForm.valid" color="primary">
+      {{ "LOGIN" | translate }}
+    </button>
+    <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{ERROR_LOGIN | translate}}</div>
+  </mat-card-actions>
+</mat-card>

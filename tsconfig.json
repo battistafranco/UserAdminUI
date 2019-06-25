@@ -27,6 +27,9 @@
       "@models/*": [
         "src/app/models/*"
       ],
+      "@environments/*": [
+        "src/environments/*"
+      ],
       "jszip": [
         "./node_modules/jszip/dist/jszip.min.js"
       ]

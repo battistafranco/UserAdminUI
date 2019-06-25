@@ -30,6 +30,7 @@
               "node_modules/devextreme/dist/css/dx.common.css",
               "src/assets/styles/material-compact-light/material-compact.scss",
               "src/assets/styles/flexboxgrid/flexboxgrid.min.css",
+              "node_modules/ngx-toastr/toastr.css",
               "src/styles.scss"
             ],
             "scripts": []

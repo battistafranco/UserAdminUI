@@ -1,9 +1,9 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav [opened]="true" mode="side">
+  <mat-sidenav *ngIf="currentUser$ | async" #sidenav [opened]="true" mode="side">
     <app-side-nav-list (sidenavClose)="sidenav.close()"></app-side-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content [@onMainContentChange]="onSideNavChange ? 'open': 'close'">
-    <app-header (sidenavToggle)="sidenavToggle()"></app-header>
+  <mat-sidenav-content [@onMainContentChange]="!(currentUser$ | async) ? 'hidden' : onSideNavChange ? 'open': 'close'">
+    <app-header *ngIf="currentUser$ | async" (sidenavToggle)="sidenavToggle()"></app-header>
     <main>
       <router-outlet></router-outlet>
     </main>

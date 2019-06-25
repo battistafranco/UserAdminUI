@@ -2,6 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { OverlayContainer } from "@angular/cdk/overlay";
 import { SidenavService } from "./core/layout/services/sidenav.service";
 import { onMainContentChange } from "@shared/animations/animations";
+import { User, UserCredentials } from '@models/user';
+import { AuthService } from './core/auth/services/auth.service';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: "app-root",
@@ -13,12 +16,15 @@ export class AppComponent implements OnInit {
   title = "Bienvenido a User Admin";
   subtitle = "Anywhere Portforlio";
   themeClass: string;
+  currentUser$: Observable<UserCredentials>;
   public onSideNavChange: boolean;
 
   constructor(
     private overlayContainer: OverlayContainer,
+    private authenticationService: AuthService,
     private _sidenavService: SidenavService
   ) {
+    this.currentUser$ = this.authenticationService.getCurrentUser();
     this._sidenavService.sideNavState$.subscribe(res => {
       this.onSideNavChange = res;
     });

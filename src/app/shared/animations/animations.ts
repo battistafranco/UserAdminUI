@@ -12,8 +12,14 @@ export const onSideNavChange = trigger('onSideNavChange', [
       'min-width': '200px'
     })
   ),
+  state('hidden',
+  style({
+    'margin-left': '0px'
+  })
+),
   transition('close => open', animate('650ms ease-in')),
   transition('open => close', animate('650ms ease-in')),
+  transition('hidden => open', animate('650ms ease-in')),
 ]);
 
 
@@ -28,8 +34,15 @@ export const onMainContentChange = trigger('onMainContentChange', [
       'margin-left': '200px'
     })
   ),
+  state('hidden',
+  style({
+    'margin-left': '0px'
+  })
+),
   transition('close => open', animate('650ms ease-in')),
-  transition('open => close', animate('650ms ease-in')),
+  transition('open => close', animate('650ms ease-in')),  
+  transition('open => hidden', animate('0ms ease-in')),  
+  transition('close => hidden', animate('0ms ease-in')),  
 ]);
 
 
@@ -48,4 +61,6 @@ export const animateText = trigger('animateText', [
   ),
   transition('close => open', animate('5750ms ease-in')),
   transition('open => close', animate('50ms ease-out')),
+  transition('open => hidden', animate('0ms ease-in')),  
+  transition('close => hidden', animate('0ms ease-in')),  
 ]);

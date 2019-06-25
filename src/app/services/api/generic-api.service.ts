@@ -1,12 +1,9 @@
 import { Observable, of } from "rxjs";
 import { tap, catchError, map } from "rxjs/operators";
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { environment } from '../../../environments/environment';
 
-const httpOptions = {
-  headers: new HttpHeaders({ "Content-Type": "application/json" })
-};
 const apiUrl = environment.apiEndpoint; 
 
 @Injectable({
@@ -23,8 +20,15 @@ export abstract class GenericApiService<T> {
     );
   }
 
-  getByID(id: number): Observable<T[]> {
+  getByID(id: string): Observable<T[]> {
     return this.http.get<T[]>(`${apiUrl}/${this.basePath}/${id}`).pipe(
+      tap(res => console.log("fetched GetByID" + this.basePath)),
+      catchError(this.handleError("GetByID", []))
+    );
+  }
+
+  getExceptID(id: string): Observable<T[]> {
+    return this.http.get<T[]>(`${apiUrl}/${this.basePath}/getExceptID/${id}`).pipe(
       tap(res => console.log("fetched GetByID" + this.basePath)),
       catchError(this.handleError("GetByID", []))
     );
