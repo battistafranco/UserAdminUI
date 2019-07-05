@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { User } from "../../../../models/user";
 import { UsersService } from "../../services/users.service";
 import { AuthService } from 'src/app/core/auth/services/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: "app-users-page",
@@ -11,7 +12,8 @@ import { AuthService } from 'src/app/core/auth/services/auth.service';
 export class UsersPageComponent implements OnInit {
   Users: User[] = [];
   isLoadingDataResults = false;
-  constructor(private _us: UsersService, private authService: AuthService) {}
+  constructor(private _us: UsersService, private authService: AuthService, private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     //get Users
@@ -47,5 +49,9 @@ export class UsersPageComponent implements OnInit {
     );
   }
 
-  
+  addUser() {
+    this.router.navigate(['/users', 'e0020c24-4563-4421-a014-675c026aa904']);
+  }
+
+
 }

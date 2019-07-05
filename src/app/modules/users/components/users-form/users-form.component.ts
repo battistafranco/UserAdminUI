@@ -4,7 +4,7 @@ import {
   ViewChild,
   Output,
   EventEmitter,
-  Input
+  AfterViewInit
 } from "@angular/core";
 import {
   FormGroup,
@@ -20,6 +20,8 @@ import { ValidateUrl } from "../../../../shared/validators/validators";
 import { RolesService } from '@shared/services/roles.service';
 import { Observable } from 'rxjs';
 import { Rol } from '@models/rol';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap, tap } from 'rxjs/operators';
 
 
 
@@ -28,18 +30,17 @@ import { Rol } from '@models/rol';
   templateUrl: "./users-form.component.html",
   styleUrls: ["./users-form.component.scss"]
 })
-export class UsersFormComponent implements OnInit {
-  @ViewChild("stepper", { static: true }) stepper;
+export class UsersFormComponent implements OnInit, AfterViewInit {
+  @ViewChild("stepper", { static: false }) stepper;
   @Output() reloadTable = new EventEmitter();
-  @Input() user: User;
   formGroup: FormGroup;
   personalFormGroup: FormGroup;
-  filtersFormGroup: FormGroup;  
-  appsFormGroup: FormGroup;  
-  specialPermissionsFormGroup: FormGroup;  
+  filtersFormGroup: FormGroup;
+  appsFormGroup: FormGroup;
+  specialPermissionsFormGroup: FormGroup;
   isLinear = true;
-  usr: User;
-  roles$ : Observable<Rol[]>;
+  user$: Observable<User>;
+  roles$: Observable<Rol[]>;
 
   get formArray(): AbstractControl | null {
     return this.formGroup.get("formArray");
@@ -49,27 +50,34 @@ export class UsersFormComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private _usrService: UsersService,
     private _rolesService: RolesService,
-  ) { }
+    private route: ActivatedRoute,
+    private router: Router,
+  ) { 
+
+  }
 
   ngOnInit() {
+  
+    this.route.params.subscribe(params => {
+      let id = params.id;
+      if (id && id != "") {
+        this._usrService.setSelectedUser(id);       
+      }
+    });
+
     this.buildForm();
+
     this.fillRoles();
   }
   buildForm() {
 
-    this.personalFormGroup = this._formBuilder.group({
-      name: [this.user.name, Validators.required],
-      lastName: [this.user.lastName, Validators.required],
-      username: [this.user.username, Validators.required],
-      email: [this.user.email, [Validators.email, Validators.required]],
-      dni: [this.user.identification, Validators.required],
-      telefono: [this.user.phone],
-      rol: [this.user.role, Validators.required]
-    });
-
     this.filtersFormGroup = this._formBuilder.group({
-      
+
     });
+  }
+
+  ngAfterViewInit(){
+    this.user$ = this._usrService.getSelectedUser();
   }
 
   fillRoles() {
@@ -77,7 +85,7 @@ export class UsersFormComponent implements OnInit {
   }
 
   rolesChanged(role) {
-   console.log("Roles changed: " + role)
+    console.log("Roles changed: " + role)
   }
 
   submit() {
@@ -94,7 +102,7 @@ export class UsersFormComponent implements OnInit {
     // });
   }
 
-  resetControls() {    
+  resetControls() {
     this.personalFormGroup.reset();
     this.stepper.reset();
   }

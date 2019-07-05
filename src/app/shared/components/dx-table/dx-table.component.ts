@@ -22,7 +22,7 @@ import { FiltersService } from "../filters/services/filters.service";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DxTableComponent implements OnInit {
-  @ViewChild("grid", { static: true }) dataGrid: DxDataGridComponent;
+  @ViewChild("grid", { static: false }) dataGrid: DxDataGridComponent;
   @Input() columns: any;
   @Input() datasource: any;
   @Input() filename: any;
@@ -59,7 +59,7 @@ export class DxTableComponent implements OnInit {
     this.initialSelectedRows$ = this.filtersService.selectedMethodsByRol$;
   }
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() { }
 
   onRowRemoving(event) {
     console.log(event);
@@ -81,4 +81,5 @@ export class DxTableComponent implements OnInit {
   clearEvents() {
     this.events = [];
   }
+
 }

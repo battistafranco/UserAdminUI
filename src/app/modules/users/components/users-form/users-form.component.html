@@ -1,85 +1,18 @@
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
   <mat-step [stepControl]="personalFormGroup">
-    <form [formGroup]="personalFormGroup">
-      <ng-template matStepLabel>{{
-        "INFORMACION_PERSONAL" | translate
-      }}</ng-template>
-      <div>
-        <mat-form-field class="full-width">
-          <input
-            id="name"
-            formControlName="name"
-            matInput
-            placeholder="{{ 'NOMBRE' | translate }}"           
-            required
-          />
-          <mat-error *ngIf="personalFormGroup.get('name').errors">
-            {{ "MSG_ERROR_NOMBRE" | translate }}</mat-error
-          >
-        </mat-form-field>
-      </div>
-
-      <div>
-        <mat-form-field class="full-width">
-          <input
-            id="email"
-            formControlName="email"
-            matInput
-            type="email"
-            placeholder="Email"
-            required
-          />
-          <mat-error *ngIf="personalFormGroup.get('email').errors">
-            {{ "MSG_ERROR_EMAIL" | translate }}</mat-error
-          >
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field class="full-width">
-          <input
-            id="url"
-            formControlName="url"
-            matInput
-            type="text"
-            placeholder="Url"
-            required
-          />
-          <mat-error
-            *ngIf="
-              personalFormGroup.get('url').errors &&
-              personalFormGroup.get('url').errors.validUrl
-            "
-          >
-            {{ "MSG_ERROR_URL" | translate }}
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <div>
-        <button mat-raised-button color="primary" type="button" matStepperNext>
-          {{ "SIGUIENTE" | translate }}
-        </button>
-      </div>
-    </form>
+    {{user$ | async | json}}
   </mat-step>
 
-  <mat-step [stepControl]="accountFormGroup">
+  <!-- <mat-step [stepControl]="accountFormGroup">
     <form [formGroup]="accountFormGroup">
       <ng-template matStepLabel>{{
         "INFORMACION_CUENTA" | translate
       }}</ng-template>
       <div>
         <mat-form-field>
-          <mat-select
-            class="full-width"
-            formControlName="mc"
-            (selectionChange)="mcChanged($event)"
-            placeholder="{{ 'ALYC' | translate }}"
-          >
-            <mat-option
-              style="width:100%"
-              *ngFor="let mc of mcs"
-              [value]="mc.miembroCompensadorCodigo"
-            >
+          <mat-select class="full-width" formControlName="mc" (selectionChange)="mcChanged($event)"
+            placeholder="{{ 'ALYC' | translate }}">
+            <mat-option style="width:100%" *ngFor="let mc of mcs" [value]="mc.miembroCompensadorCodigo">
               {{ mc.miembroCompensadorDescripcion }} - ({{
                 mc.miembroCompensadorCodigo
               }})
@@ -89,17 +22,9 @@
       </div>
       <div>
         <mat-form-field>
-          <mat-select
-            class="full-width"
-            (selectionChange)="cimChanged($event)"
-            formControlName="cim"
-            placeholder="{{ 'CIM' | translate }}"
-          >
-            <mat-option
-              style="width:100%"
-              *ngFor="let cim of selectedCims"
-              [value]="cim.cuentaCompensacionCodigo"
-            >
+          <mat-select class="full-width" (selectionChange)="cimChanged($event)" formControlName="cim"
+            placeholder="{{ 'CIM' | translate }}">
+            <mat-option style="width:100%" *ngFor="let cim of selectedCims" [value]="cim.cuentaCompensacionCodigo">
               {{ cim.cuentaCompensacionDescripcion }} - ({{
                 cim.cuentaCompensacionCodigo
               }})
@@ -109,12 +34,7 @@
       </div>
 
       <div>
-        <button
-          mat-raised-button
-          color="default"
-          type="button"
-          matStepperPrevious
-        >
+        <button mat-raised-button color="default" type="button" matStepperPrevious>
           {{ "ATRAS" | translate }}
         </button>
         <button mat-raised-button color="primary" type="button" matStepperNext>
@@ -122,12 +42,12 @@
         </button>
       </div>
     </form>
-  </mat-step>
+  </mat-step> -->
 
   <mat-step>
     <ng-template matStepLabel> {{ "FIN" | translate }}</ng-template>
     <div class="form-group">
-      <mat-card class="example-card">
+      <!-- <mat-card class="example-card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title>{{ personalFormGroup.value.name }}</mat-card-title>
@@ -135,33 +55,23 @@
             personalFormGroup.value.email
           }}</mat-card-subtitle>
         </mat-card-header>
- 
+
         <mat-card-content>
           <p>MC: {{ selectedMC?.text }}</p>
           <p>CIM: {{ selectedCIM?.text }}</p>
         </mat-card-content>
         <mat-card-actions>
-          <button
-            mat-raised-button
-            color="warn"
-            type="button"
-            (click)="stepper.reset()"
-          >
+          <button mat-raised-button color="warn" type="button" (click)="stepper.reset()">
             Cancelar
           </button>
           <button mat-raised-button color="primary" (click)="submit()">
             {{ "ENVIAR" | translate }}
           </button>
         </mat-card-actions>
-      </mat-card>
+      </mat-card> -->
     </div>
     <div>
-      <button
-        mat-raised-button
-        color="default"
-        type="button"
-        matStepperPrevious
-      >
+      <button mat-raised-button color="default" type="button" matStepperPrevious>
         {{ "ATRAS" | translate }}
       </button>
     </div>

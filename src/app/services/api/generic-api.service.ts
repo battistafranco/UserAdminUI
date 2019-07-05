@@ -20,17 +20,17 @@ export abstract class GenericApiService<T> {
     );
   }
 
-  getByID(id: string): Observable<T[]> {
-    return this.http.get<T[]>(`${apiUrl}/${this.basePath}/${id}`).pipe(
+  getByID(id: string): Observable<T> {
+    return this.http.get<T>(`${apiUrl}/${this.basePath}/GetByID/${id}`).pipe(
       tap(res => console.log("fetched GetByID" + this.basePath)),
-      catchError(this.handleError("GetByID", []))
+      catchError(this.handleError("GetByID", null))
     );
   }
 
   getExceptID(id: string): Observable<T[]> {
     return this.http.get<T[]>(`${apiUrl}/${this.basePath}/getExceptID/${id}`).pipe(
-      tap(res => console.log("fetched GetByID" + this.basePath)),
-      catchError(this.handleError("GetByID", []))
+      tap(res => console.log("fetched GetExceptID" + this.basePath)),
+      catchError(this.handleError("GetExceptID", []))
     );
   }
 

@@ -1,3 +1,5 @@
+import { timestamp } from 'rxjs/operators';
+
 export interface User {
     id : string,
     name: string,
@@ -7,12 +9,13 @@ export interface User {
     password : string,      
     phone: string,
     identification: string,
-    role: string;  
+    role: string 
 }
 
 
 export interface UserCredentials {
     id : string,   
     username : string,      
-    token : string,        
+    token : string,  
+    timestamp: any      
 }

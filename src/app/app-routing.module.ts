@@ -7,6 +7,7 @@ const routes: Routes = [
   {
     path: "home",
     loadChildren: "./modules/home/home.module#HomeModule",
+    //loadChildren : () => import('./modules/home/home.module#HomeModule').then(m => m.HomeModule),
     data: {
       breadcrumb: "Home"
     },
