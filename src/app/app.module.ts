@@ -21,6 +21,8 @@ import { PipesModule } from "./pipes/pipes.module";
 
 import { SharedComponentsModule } from './shared/components/shared-components.module';
 
+
+
 export function setupTranslateFactory(service: TranslateService): Function {
   return () => service.use("es");
 }
@@ -32,15 +34,15 @@ export function setupTranslateFactory(service: TranslateService): Function {
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,  
+    AppRoutingModule,
     CoreModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     PipesModule,
-    MaterialModule,      
-    SharedComponentsModule,    
+    MaterialModule,
+    SharedComponentsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "es-AR" },
@@ -51,7 +53,7 @@ export function setupTranslateFactory(service: TranslateService): Function {
       deps: [TranslateService],
       multi: true
     }
-  ],  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

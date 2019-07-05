@@ -5,11 +5,11 @@
   
   .full-width {
     width: 100%;
-  }
-  
-  ::ng-deep .mat-form-field {
-    width: 100%;
-  }
+  } 
+ 
+  // ::ng-deep .mat-form-field .full-width{
+  //   width: 100%;
+  // }
   
   .error-msg {
     font-size: smaller;

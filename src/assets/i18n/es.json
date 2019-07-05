@@ -28,7 +28,7 @@
   "GRAFICO_SIGNALR" : "Gráfico SignalR",
   "TABLA_SIGNALR" : "Tabla SignalR",
   "MSG_ERROR_URL": "La URL debe contener https:// y finalizar con .io",
-  "MSG_ERROR_NOMBRE": "Nombre inválido, debe tener entre 3 y 31 caracteres y sólo debe contener letras",
+  "MSG_ERROR_NOMBRE": "Nombre inválido",
   "MSG_ERROR_EMAIL":"Email inválido",
   "TOTAL":"Total",
   "ADMINISTRACION_USUARIOS" : "Administración de usuarios",
@@ -46,5 +46,13 @@
   "USERNAME": "Usuario",
   "GUARDAR" : "Guardar",
   "ROL_SELECCIONADO":" Rol Seleccionado:",
-  "NO_HAY_ROL_SELECCIONADO":"No hay un rol seleccionado"
+  "NO_HAY_ROL_SELECCIONADO":"No hay un rol seleccionado",
+  "INFO_PERSONAL": "Info. Personal",
+  "APLICACIONES": "Aplicaciones",
+  "PERMISOS_ESPECIALES": "Permisos Especiales",
+  "NUEVO_USUARIO" : "Nuevo Usuario",
+  "MSG_ERROR_REQUERIDO" : "Campo requerido",
+  "MSG_ERROR_USERNAME" : "Usuario inválido",
+  "VALOR_DE_FILTRO" : "Valor de Filtro",
+  "TELEFONO" : "Teléfono"
 }

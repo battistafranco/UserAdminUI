@@ -35,7 +35,7 @@ export class UsersService extends GenericApiService<User> {
   setSelectedUser(id) {
     this.getByID(id).pipe(
       tap(user => {
-        debugger;
+        
         this.selectedUserSubject = new BehaviorSubject<User>(user);
         this.selectedUser = this.selectedUserSubject.asObservable();
       })

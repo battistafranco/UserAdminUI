@@ -9,17 +9,17 @@ import { SharedComponentsModule } from "src/app/shared/components/shared-compone
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from "./services/users.service";
 import { TranslatePipe } from "src/app/pipes/translate.pipe";
-import { PesonalDataFormComponent } from './components/pesonal-data-form/pesonal-data-form.component';
-
+import { PersonalDataFormComponent } from './components/personal-data-form/personal-data-form.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
-  declarations: [UsersPageComponent, UsersFormComponent, UsersListComponent, PesonalDataFormComponent],
+  declarations: [UsersPageComponent, UsersFormComponent, UsersListComponent, PersonalDataFormComponent],
   imports: [
     CommonModule,
     UsersRoutingModule,
     SharedComponentsModule,
     FormsModule,
-    ReactiveFormsModule
-  
+    ReactiveFormsModule,
+    FlexLayoutModule  
   ],
   exports: [UsersPageComponent, UsersFormComponent, UsersListComponent],  
   providers: [UsersService, TranslatePipe]

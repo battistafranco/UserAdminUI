@@ -52,16 +52,20 @@ export class UsersFormComponent implements OnInit, AfterViewInit {
     private _rolesService: RolesService,
     private route: ActivatedRoute,
     private router: Router,
-  ) { 
+  ) {
 
   }
 
   ngOnInit() {
-  
+
     this.route.params.subscribe(params => {
       let id = params.id;
+      
       if (id && id != "") {
-        this._usrService.setSelectedUser(id);       
+        this.editUser(id);
+      }
+      else {
+        this.newUser();
       }
     });
 
@@ -76,8 +80,17 @@ export class UsersFormComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
+
+  }
+
+  editUser(id) {
+    this._usrService.setSelectedUser(id);
     this.user$ = this._usrService.getSelectedUser();
+  }
+
+  newUser() {
+
   }
 
   fillRoles() {

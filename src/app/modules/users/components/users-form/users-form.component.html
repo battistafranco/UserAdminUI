@@ -1,6 +1,22 @@
-<mat-horizontal-stepper [linear]="isLinear" #stepper>
+<mat-horizontal-stepper linear="true" #stepper>
   <mat-step [stepControl]="personalFormGroup">
-    {{user$ | async | json}}
+    <ng-template matStepLabel>{{ "INFO_PERSONAL" | translate }}</ng-template>
+    <app-personal-data-form [user]="user$ | async"></app-personal-data-form>
+  </mat-step>
+
+  <mat-step [stepControl]="filtersFormGroup">
+    <ng-template matStepLabel>{{ "FILTROS" | translate }}</ng-template>
+
+  </mat-step>
+
+  <mat-step [stepControl]="appsFormGroup">
+    <ng-template matStepLabel>{{ "APLICACIONES" | translate }}</ng-template>
+
+  </mat-step>
+
+  <mat-step [stepControl]="specialAccessFormGroup">
+    <ng-template matStepLabel>{{ "PERMISOS_ESPECIALES" | translate }}</ng-template>
+
   </mat-step>
 
   <!-- <mat-step [stepControl]="accountFormGroup">

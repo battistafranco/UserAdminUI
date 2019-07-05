@@ -42,32 +42,6 @@ export class FiltersComponent implements OnInit {
         console.log(err);
       }
     );
-
-    // var rol1 = {
-    //   id: "1",
-    //   name: "Administrador",
-    //   value: "1",
-    //   filter: "_*%",
-    //   enabled: true,
-    //   description: "Desc. Admin"
-    // };
-    // var rol2 = {
-    //   id: "2",
-    //   name: "MC",
-    //   value: "2",
-    //   filter: "89",
-    //   enabled: true,
-    //   description: "Desc. MC"
-    // };
-    // var rol3 = {
-    //   id: "3",
-    //   name: "CIM",
-    //   value: "3",
-    //   filter: "1089",
-    //   enabled: true,
-    //   description: "Desc. CIM"
-    // };
-    // this.roles.push(rol1, rol2, rol3);
   }
 
   reset() {

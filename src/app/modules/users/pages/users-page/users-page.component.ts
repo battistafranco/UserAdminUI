@@ -50,7 +50,7 @@ export class UsersPageComponent implements OnInit {
   }
 
   addUser() {
-    this.router.navigate(['/users', 'e0020c24-4563-4421-a014-675c026aa904']);
+    this.router.navigate(['/users','']);
   }
 
 
