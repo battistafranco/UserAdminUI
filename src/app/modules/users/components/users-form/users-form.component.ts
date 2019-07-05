@@ -29,7 +29,7 @@ import { Rol } from '@models/rol';
   styleUrls: ["./users-form.component.scss"]
 })
 export class UsersFormComponent implements OnInit {
-  @ViewChild("stepper") stepper;
+  @ViewChild("stepper", { static: true }) stepper;
   @Output() reloadTable = new EventEmitter();
   @Input() user: User;
   formGroup: FormGroup;

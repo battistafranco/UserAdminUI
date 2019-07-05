@@ -22,7 +22,7 @@ import { FiltersService } from "../filters/services/filters.service";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DxTableComponent implements OnInit {
-  @ViewChild("grid") dataGrid: DxDataGridComponent;
+  @ViewChild("grid", { static: true }) dataGrid: DxDataGridComponent;
   @Input() columns: any;
   @Input() datasource: any;
   @Input() filename: any;
