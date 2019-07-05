@@ -1,0 +1,18 @@
+.example-header-image {
+    background-image: url("https://cdn4.iconfinder.com/data/icons/social-communication/142/add_user-512.png");
+    background-size: cover;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  ::ng-deep .mat-form-field {
+    width: 100%;
+  }
+  
+  .error-msg {
+    font-size: smaller;
+    color: red;
+  }
+  

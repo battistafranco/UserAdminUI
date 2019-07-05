@@ -4,7 +4,10 @@ export interface User {
     lastName: string,
     username : string,  
     email : string,    
-    password : string,        
+    password : string,      
+    phone: string,
+    identification: string,
+    role: string;  
 }
 
 

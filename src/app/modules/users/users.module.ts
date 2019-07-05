@@ -9,9 +9,10 @@ import { SharedComponentsModule } from "src/app/shared/components/shared-compone
 //import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from "./services/users.service";
 import { TranslatePipe } from "src/app/pipes/translate.pipe";
+import { PesonalDataFormComponent } from './components/pesonal-data-form/pesonal-data-form.component';
 
 @NgModule({
-  declarations: [UsersPageComponent, UsersFormComponent, UsersListComponent],
+  declarations: [UsersPageComponent, UsersFormComponent, UsersListComponent, PesonalDataFormComponent],
   imports: [
     CommonModule,
     UsersRoutingModule,
