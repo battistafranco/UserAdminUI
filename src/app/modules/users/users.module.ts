@@ -11,8 +11,12 @@ import { UsersService } from "./services/users.service";
 import { TranslatePipe } from "src/app/pipes/translate.pipe";
 import { PersonalDataFormComponent } from './components/personal-data-form/personal-data-form.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { UserFiltersFormComponent } from './components/user-filters-form/user-filters-form.component';
+import { AppsListComponent } from './components/apps-list/apps-list.component';
+import { SpecialPermissionsListComponent } from './components/special-permissions-list/special-permissions-list.component';
+import { MenusListComponent } from './components/menus-list/menus-list.component';
 @NgModule({
-  declarations: [UsersPageComponent, UsersFormComponent, UsersListComponent, PersonalDataFormComponent],
+  declarations: [UsersPageComponent, UsersFormComponent, UsersListComponent, PersonalDataFormComponent, UserFiltersFormComponent, AppsListComponent, SpecialPermissionsListComponent, MenusListComponent],
   imports: [
     CommonModule,
     UsersRoutingModule,

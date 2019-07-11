@@ -1,0 +1,41 @@
+
+  <mat-card class="example-card">
+      <mat-card-header>
+          <mat-card-title class="text">{{ "APLICACIONES" | translate}}</mat-card-title>
+          <mat-card-subtitle class="subtext">Seleccione las aplicaciones a las que podrá acceder el usuario</mat-card-subtitle>
+      </mat-card-header>
+  
+      <mat-card-content>
+          <app-dx-table
+          (selectionRowChanged)="onSelectionRowChanged($event)"
+          [datasource]="apps"
+          filename="apps"
+          [columns]="columns"
+          [allowUpdating]="false"
+          [allowDeleting]="false"
+          [allowAdding]="false"
+          [allowPaging]="false"
+          columnSelectionMode="multiple"  
+          [columnChooserEnabled]="false"
+          [exportEnabled] = "false"
+          [allowFilter] = "false"
+          [allowSorting] = "false"
+          [searchPanelVisible] = "false"
+          [showHeaderFilter]="false"
+          [allowSelectAll]="false"
+          key="id"
+        ></app-dx-table>
+        <div style="margin-top: 5px;" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px" fxLayoutAlign="flex-end">
+            <button [disabled]="selectedKeys.length == 0"  mat-raised-button color="primary" type="button" matStepperNext>
+              {{ "SIGUIENTE" | translate }}
+            </button>
+            <button mat-raised-button class="action-button" matStepperPrevious color="default">
+                {{ "ATRAS" | translate }}
+            </button>
+            <button mat-raised-button class="action-button" color="accent">
+                {{ "LIMPIAR" | translate }}
+            </button>
+          </div>
+      </mat-card-content>
+  
+  </mat-card>

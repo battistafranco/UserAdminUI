@@ -1,60 +1,73 @@
-<form [formGroup]="personalFormGroup">
-  <ng-template matStepLabel>{{
-    "INFORMACION_PERSONAL" | translate
-  }}</ng-template>
-  <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px" fxLayoutAlign="flex-start">
+<mat-card class="personal-data-card">
+  <mat-card-header>
+    <mat-card-title class="text">{{"INFORMACION_PERSONAL" | translate}}</mat-card-title>
+    <mat-card-subtitle class="subtext">Complete los datos del usuario</mat-card-subtitle>
+  </mat-card-header>
 
-    <mat-form-field fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%"
-      appearance="legacy">
-      <input id="username" formControlName="username" matInput placeholder="{{ 'USERNAME' | translate }}" required />
-      <mat-error *ngIf="personalFormGroup.get('username').errors">
-        {{ "MSG_ERROR_USERNAME" | translate }}</mat-error>
-    </mat-form-field>
+  <mat-card-content>
+    <form [formGroup]="personalFormGroup">
+      <ng-template matStepLabel>{{
+                  "INFORMACION_PERSONAL" | translate
+                }}</ng-template>
+      <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px" fxLayoutAlign="flex-start">
 
-    <mat-form-field fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
-      <input id="name" formControlName="name" matInput placeholder="{{ 'NOMBRE' | translate }}" required />
-      <mat-error *ngIf="personalFormGroup.get('name').errors">
-        {{ "MSG_ERROR_REQUERIDO" | translate }}</mat-error>
-    </mat-form-field>
+        <mat-form-field fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%"
+          appearance="legacy">
+          <input id="username" formControlName="username" matInput placeholder="{{ 'USERNAME' | translate }}"
+            required />
+          <mat-error *ngIf="personalFormGroup.get('username').errors">
+            {{ "MSG_ERROR_USERNAME" | translate }}</mat-error>
+        </mat-form-field>
 
-    <mat-form-field fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
-      <input id="lastName" formControlName="lastName" matInput placeholder="{{ 'APELLIDO' | translate }}" required />
-      <mat-error *ngIf="personalFormGroup.get('lastName').errors">
-        {{ "MSG_ERROR_REQUERIDO" | translate }}</mat-error>
-    </mat-form-field>
+        <mat-form-field fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
+          <input id="name" formControlName="name" matInput placeholder="{{ 'NOMBRE' | translate }}" required />
+          <mat-error *ngIf="personalFormGroup.get('name').errors">
+            {{ "MSG_ERROR_REQUERIDO" | translate }}</mat-error>
+        </mat-form-field>
 
-    <mat-form-field fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
-      <input id="email" formControlName="email" matInput type="email" placeholder="Email" required />
-      <mat-error *ngIf="personalFormGroup.get('email').errors">
-        {{ "MSG_ERROR_EMAIL" | translate }}</mat-error>
-    </mat-form-field>
+        <mat-form-field fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
+          <input id="lastName" formControlName="lastName" matInput placeholder="{{ 'APELLIDO' | translate }}"
+            required />
+          <mat-error *ngIf="personalFormGroup.get('lastName').errors">
+            {{ "MSG_ERROR_REQUERIDO" | translate }}</mat-error>
+        </mat-form-field>
 
-    <mat-form-field fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
-      <input id="dni" formControlName="dni" matInput type="text" placeholder="{{ 'DNI' | translate }}" required />
-      <mat-error *ngIf="personalFormGroup.get('dni').errors">
-        {{ "MSG_ERROR_REQUERIDO" | translate }}</mat-error>
-    </mat-form-field>
+        <mat-form-field fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
+          <input id="email" formControlName="email" matInput type="email" placeholder="Email" required />
+          <mat-error *ngIf="personalFormGroup.get('email').errors">
+            {{ "MSG_ERROR_EMAIL" | translate }}</mat-error>
+        </mat-form-field>
 
-    <mat-form-field fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
-      <input id="telefono" formControlName="telefono" matInput type="text" placeholder="{{ 'TELEFONO' | translate }}" />
-    </mat-form-field>
+        <mat-form-field fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
+          <input id="dni" formControlName="dni" matInput type="text" placeholder="{{ 'DNI' | translate }}" required />
+          <mat-error *ngIf="personalFormGroup.get('dni').errors">
+            {{ "MSG_ERROR_REQUERIDO" | translate }}</mat-error>
+        </mat-form-field>
 
-    <mat-form-field fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
-      <mat-select id="rol" formControlName="rol" placeholder="{{ 'ROLES' | translate }}">
-        <mat-option *ngFor="let rol of roles$ | async" [value]="rol">
-          {{ rol.name }}
-        </mat-option>
-      </mat-select>
-      <mat-error *ngIf="personalFormGroup.get('rol').errors">
-        {{ "MSG_ERROR_REQUERIDO" | translate }}</mat-error>
-    </mat-form-field>
-  </div>
-  <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px" fxLayoutAlign="flex-end">
-    <button [disabled]="!personalFormGroup.valid" mat-raised-button color="primary" type="button" matStepperNext>
-      {{ "SIGUIENTE" | translate }}
-    </button>
-    <button mat-raised-button (click)="personalFormGroup.reset()" class="action-button" color="default">
-      {{ "LIMPIAR" | translate }}
-    </button>
-  </div>
-</form>
+        <mat-form-field fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
+          <input id="telefono" formControlName="telefono" matInput type="text"
+            placeholder="{{ 'TELEFONO' | translate }}" />
+        </mat-form-field>
+
+        <mat-form-field fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
+          <mat-select id="rol" formControlName="rol" placeholder="{{ 'ROLES' | translate }}">
+            <mat-option *ngFor="let rol of roles$ | async" [value]="rol">
+              {{ rol.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="personalFormGroup.get('rol').errors">
+            {{ "MSG_ERROR_REQUERIDO" | translate }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px" fxLayoutAlign="flex-end">
+        <button [disabled]="!personalFormGroup.valid" mat-raised-button color="primary" type="button" matStepperNext>
+          {{ "SIGUIENTE" | translate }}
+        </button>
+        <button mat-raised-button (click)="personalFormGroup.reset()" class="action-button" color="accent">
+          {{ "LIMPIAR" | translate }}
+        </button>
+      </div>
+    </form>
+
+  </mat-card-content>
+</mat-card>

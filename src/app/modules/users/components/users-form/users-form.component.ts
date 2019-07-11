@@ -22,6 +22,7 @@ import { Observable } from 'rxjs';
 import { Rol } from '@models/rol';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -37,7 +38,8 @@ export class UsersFormComponent implements OnInit, AfterViewInit {
   personalFormGroup: FormGroup;
   filtersFormGroup: FormGroup;
   appsFormGroup: FormGroup;
-  specialPermissionsFormGroup: FormGroup;
+  menusFormGroup: FormGroup;
+  specialAccessFormGroup: FormGroup;
   isLinear = true;
   user$: Observable<User>;
   roles$: Observable<Rol[]>;
@@ -52,6 +54,7 @@ export class UsersFormComponent implements OnInit, AfterViewInit {
     private _rolesService: RolesService,
     private route: ActivatedRoute,
     private router: Router,
+    private toastrService : ToastrService
   ) {
 
   }
@@ -102,6 +105,9 @@ export class UsersFormComponent implements OnInit, AfterViewInit {
   }
 
   submit() {
+    this.toastrService.success("Usuario dado de alta correctamente. ", "OK!");
+    this.router.navigate(['/users']);    
+    
     // const nombre = this.personalFormGroup.value.name;
     // const email = this.personalFormGroup.value.email;
     // const mc = this.accountFormGroup.value.mc;
@@ -114,6 +120,8 @@ export class UsersFormComponent implements OnInit, AfterViewInit {
     //   this.reloadTable.emit(true);
     // });
   }
+
+
 
   resetControls() {
     this.personalFormGroup.reset();

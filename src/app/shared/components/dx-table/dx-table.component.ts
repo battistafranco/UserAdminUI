@@ -27,6 +27,14 @@ export class DxTableComponent implements OnInit {
   @Input() datasource: any;
   @Input() filename: any;
 
+  @Input() columnChooserEnabled: boolean = true;
+  @Input() exportEnabled: boolean = true;
+  @Input() allowFilter: boolean = true;
+  @Input() allowSorting: boolean = true;
+  @Input() searchPanelVisible: boolean = true;
+  @Input() showHeaderFilter: boolean = true;
+  @Input() allowSelectAll: boolean = true;
+
   //Paging Options
   @Input() allowPaging: boolean;
 

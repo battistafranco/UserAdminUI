@@ -1,0 +1,50 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title class="text">{{ "FILTROS" | translate}}</mat-card-title>
+        <mat-card-subtitle class="subtext">Complete los filtros del Rol seleccionado</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+
+        <form [formGroup]="form">
+            <ng-template matStepLabel>{{
+          "FILTROS" | translate
+        }}</ng-template>
+            <div formArrayName="filters">
+                <div *ngFor="let filter of filters.controls; let i = index;">
+                    <div [formGroupName]="i">
+
+                        <mat-form-field>
+                            <input formControlName="filterValue" matInput
+                                placeholder="{{ 'VALOR_DE_FILTRO' | translate }}" required />
+                            <mat-error
+                                *ngIf="getFiltersFormGroup(i).controls['filterValue'].touched && getFiltersFormGroup(i).controls['filterValue'].hasError('required')">
+                                {{ "REQUERIDO" | translate }}</mat-error>
+                        </mat-form-field>
+                        <button mat-mini-fab color="warn" [disabled]="filters.controls.length == 1"
+                            (click)="removeFilter(i)" aria-label="Delete">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                </div>
+                <button mat-raised-button (click)="addFilter()" class="action-button" color="secondary">
+                    {{ "AGREGAR_FILTRO" | translate }}
+                </button>
+                <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px" fxLayoutAlign="flex-end">
+                    <button [disabled]="!form.valid" (click)="submit()" mat-raised-button color="primary" type="button"
+                        matStepperNext>
+                        {{ "SIGUIENTE" | translate }}
+                    </button>
+                    <button mat-raised-button class="action-button" matStepperPrevious color="default">
+                        {{ "ATRAS" | translate }}
+                    </button>
+                    <button mat-raised-button (click)="form.reset()" class="action-button" color="accent">
+                        {{ "LIMPIAR" | translate }}
+                    </button>
+
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+
+</mat-card>

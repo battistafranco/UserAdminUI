@@ -1,41 +1,22 @@
-<div class="filters">  
+<div class="filters">
   <form [formGroup]="form">
     <mat-form-field class="col-md-4 col-xs-12">
-      <mat-select
-        id="rol"
-        formControlName="rol"
-        placeholder="{{ 'ROLES' | translate }}"
-      >
+      <mat-select id="rol" formControlName="rol" placeholder="{{ 'ROLES' | translate }}">
         <mat-option *ngFor="let rol of roles" [value]="rol">
           {{ rol.name }}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field class="col-md-4 col-xs-12">
-      <input
-        id="selectedFilterValue"
-        formControlName="selectedFilterValue"
-        matInput
-        type="text"
-        placeholder="Valor de filtro"
-      />
+      <input id="selectedFilterValue" formControlName="selectedFilterValue" matInput type="text"
+        placeholder=" {{ 'VALOR_DE_FILTRO' | translate }}" />
     </mat-form-field>
     <div>
-      <button
-        mat-raised-button
-        (click)="submit()"
-        class="action-button pull-right"
-        [disabled]="!form.valid"
-        color="primary"
-      >
+      <button mat-raised-button (click)="submit()" class="action-button pull-right" [disabled]="!form.valid"
+        color="primary">
         {{ "FILTRAR" | translate }}
       </button>
-      <button
-        mat-raised-button
-        (click)="reset()"
-        class="action-button pull-right"
-        color="accent"
-      >
+      <button mat-raised-button (click)="reset()" class="action-button pull-right" color="accent">
         {{ "LIMPIAR" | translate }}
       </button>
     </div>

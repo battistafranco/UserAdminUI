@@ -1,0 +1,47 @@
+<mat-card class="menu-list-card">
+    <mat-card-header>
+        <mat-card-title class="text">{{ "MENUES" | translate}}</mat-card-title>
+        <mat-card-subtitle class="subtext">Seleccione los menúes de las aplicaciones que podrá acceder el usuario</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <mat-tree #tree [dataSource]="dataSource" [treeControl]="treeControl">
+            <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
+                <div [style.background-color]="node.color">
+                    <mat-checkbox class="checklist-leaf-node" [checked]="checklistSelection.isSelected(node)"
+                        (change)="checklistSelection.toggle(node);">{{node.item}} {{node.color}}</mat-checkbox>
+                </div>
+
+            </mat-tree-node>
+
+
+            <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+                <div style="width: 100%; border-radius: 3px"
+                    [style.background-color]="getLevel(node) == 0 ? '#72caf0' :  (getLevel(node) == 1 ? '#c3e8f8' : '#FFF') ">
+                    <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.filename">
+                        <mat-icon class="mat-icon-rtl-mirror">
+                            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                        </mat-icon>
+                    </button>
+                    <mat-checkbox [checked]="descendantsAllSelected(node)"
+                        [indeterminate]="descendantsPartiallySelected(node)" (change)="todoItemSelectionToggle(node)">
+                        {{node.item}} </mat-checkbox>
+                </div>
+            </mat-tree-node>
+        </mat-tree>
+        <div style="margin-top: 5px;" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px"
+            fxLayoutAlign="flex-end">
+            <button mat-raised-button color="primary" (click)="showSelected()" type="button" matStepperNext>
+                {{ "SIGUIENTE" | translate }}
+            </button>
+            <button mat-raised-button class="action-button" matStepperPrevious color="default">
+                {{ "ATRAS" | translate }}
+            </button>
+            <button mat-raised-button class="action-button" color="accent">
+                {{ "LIMPIAR" | translate }}
+            </button>
+        </div>
+
+    </mat-card-content>
+
+</mat-card>

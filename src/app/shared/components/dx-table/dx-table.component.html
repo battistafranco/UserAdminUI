@@ -18,15 +18,16 @@
   >
     <!-- <dxo-state-storing [enabled]="true" type="localStorage" storageKey="storage"></dxo-state-storing> -->
     <dxo-selection
+      [allowSelectAll] = "allowSelectAll"
       showCheckBoxesMode="always"
       selectAllMode="allPages"
       [mode]="columnSelectionMode"
     >
     </dxo-selection>
     
-    <dxo-header-filter [visible]="true"></dxo-header-filter>
+    <dxo-header-filter [visible]="showHeaderFilter"></dxo-header-filter>
     <dxo-search-panel
-      [visible]="true"
+      [visible]="searchPanelVisible"
       [width]="350"
       placeholder="Buscar..."
     ></dxo-search-panel>
@@ -48,10 +49,10 @@
       [showInfo]="true"
     >
     </dxo-pager>
-    <dxo-export [enabled]="true" fileName="filename"></dxo-export>
-    <dxo-column-chooser [enabled]="true" mode="select"></dxo-column-chooser>
+    <dxo-export [enabled]="exportEnabled" fileName="filename"></dxo-export>
+    <dxo-column-chooser [enabled]="columnChooserEnabled" mode="select"></dxo-column-chooser>
     <dxo-paging [enabled]="allowPaging" [pageSize]="10"></dxo-paging>
     <dxo-sorting mode="multiple"></dxo-sorting>
-    <dxo-filter-row [visible]="true"></dxo-filter-row>
+    <dxo-filter-row [visible]="allowFilter"></dxo-filter-row>
   </dx-data-grid>
 </div>

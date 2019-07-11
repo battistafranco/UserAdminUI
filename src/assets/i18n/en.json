@@ -46,5 +46,18 @@
   "USERNAME": "Username",
   "ROL_SELECCIONADO":" Selected Rol:",
   "GUARDAR" : "Save",
-  "NO_HAY_ROL_SELECCIONADO":"No role is selected"
+  "NO_HAY_ROL_SELECCIONADO":"No role is selected",
+  "INFO_PERSONAL": "Personal Info.",
+  "APLICACIONES": "Apps",
+  "PERMISOS_ESPECIALES": "Special Permissions",
+  "NUEVO_USUARIO" : "New User",
+  "MSG_ERROR_REQUERIDO" : "Required Field",
+  "MSG_ERROR_USERNAME" : "Invalid Username",
+  "VALOR_DE_FILTRO" : "Filter Value",
+  "TELEFONO" : "Phone",
+  "AGREGAR_FILTRO" : "Add Filter",
+  "REQUERIDO": "Required",
+  "MENUES": "Menus",
+  "FINALIZAR": "Submit",
+  "CANCELAR": "Cancel"
 }

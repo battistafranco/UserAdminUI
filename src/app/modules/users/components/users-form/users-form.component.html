@@ -1,4 +1,4 @@
-<mat-horizontal-stepper linear="true" #stepper>
+<mat-horizontal-stepper linear #stepper>
   <mat-step [stepControl]="personalFormGroup">
     <ng-template matStepLabel>{{ "INFO_PERSONAL" | translate }}</ng-template>
     <app-personal-data-form [user]="user$ | async"></app-personal-data-form>
@@ -6,90 +6,52 @@
 
   <mat-step [stepControl]="filtersFormGroup">
     <ng-template matStepLabel>{{ "FILTROS" | translate }}</ng-template>
-
+    <app-user-filters-form></app-user-filters-form>
   </mat-step>
 
   <mat-step [stepControl]="appsFormGroup">
     <ng-template matStepLabel>{{ "APLICACIONES" | translate }}</ng-template>
+    <app-apps-list></app-apps-list>
+  </mat-step>
 
+  <mat-step  [stepControl]="menusFormGroup">
+    <ng-template matStepLabel>{{ "MENUES" | translate }}</ng-template>
+    <app-menus-list></app-menus-list>
   </mat-step>
 
   <mat-step [stepControl]="specialAccessFormGroup">
     <ng-template matStepLabel>{{ "PERMISOS_ESPECIALES" | translate }}</ng-template>
-
+    <app-special-permissions-list></app-special-permissions-list>
   </mat-step>
-
-  <!-- <mat-step [stepControl]="accountFormGroup">
-    <form [formGroup]="accountFormGroup">
-      <ng-template matStepLabel>{{
-        "INFORMACION_CUENTA" | translate
-      }}</ng-template>
-      <div>
-        <mat-form-field>
-          <mat-select class="full-width" formControlName="mc" (selectionChange)="mcChanged($event)"
-            placeholder="{{ 'ALYC' | translate }}">
-            <mat-option style="width:100%" *ngFor="let mc of mcs" [value]="mc.miembroCompensadorCodigo">
-              {{ mc.miembroCompensadorDescripcion }} - ({{
-                mc.miembroCompensadorCodigo
-              }})
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field>
-          <mat-select class="full-width" (selectionChange)="cimChanged($event)" formControlName="cim"
-            placeholder="{{ 'CIM' | translate }}">
-            <mat-option style="width:100%" *ngFor="let cim of selectedCims" [value]="cim.cuentaCompensacionCodigo">
-              {{ cim.cuentaCompensacionDescripcion }} - ({{
-                cim.cuentaCompensacionCodigo
-              }})
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-
-      <div>
-        <button mat-raised-button color="default" type="button" matStepperPrevious>
-          {{ "ATRAS" | translate }}
-        </button>
-        <button mat-raised-button color="primary" type="button" matStepperNext>
-          {{ "SIGUIENTE" | translate }}
-        </button>
-      </div>
-    </form>
-  </mat-step> -->
 
   <mat-step>
     <ng-template matStepLabel> {{ "FIN" | translate }}</ng-template>
     <div class="form-group">
-      <!-- <mat-card class="example-card">
+      <mat-card class="example-card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{ personalFormGroup.value.name }}</mat-card-title>
-          <mat-card-subtitle>{{
-            personalFormGroup.value.email
-          }}</mat-card-subtitle>
+          <mat-card-title class="text">OK!</mat-card-title>
+          <mat-card-subtitle class="subtex">Formulario de alta finalizado</mat-card-subtitle>
         </mat-card-header>
 
-        <mat-card-content>
-          <p>MC: {{ selectedMC?.text }}</p>
-          <p>CIM: {{ selectedCIM?.text }}</p>
+        <mat-card-content class="text">
+            Presione el botón Finalizar para completar el proceso.
         </mat-card-content>
-        <mat-card-actions>
-          <button mat-raised-button color="warn" type="button" (click)="stepper.reset()">
-            Cancelar
-          </button>
-          <button mat-raised-button color="primary" (click)="submit()">
-            {{ "ENVIAR" | translate }}
-          </button>
-        </mat-card-actions>
-      </mat-card> -->
+     
+      </mat-card>
     </div>
-    <div>
-      <button mat-raised-button color="default" type="button" matStepperPrevious>
-        {{ "ATRAS" | translate }}
-      </button>
+    <div style="margin-top: 5px" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px" fxLayoutAlign="flex-end">
+        <button (click)="submit()" mat-raised-button
+            color="primary" type="button" matStepperNext>
+            {{ "FINALIZAR" | translate }}
+        </button>
+        <button mat-raised-button class="action-button" matStepperPrevious color="default">
+            {{ "ATRAS" | translate }}
+        </button>
+        <button mat-raised-button  class="action-button"  color="warn">
+            {{ "CANCELAR" | translate }}
+        </button>
+
     </div>
   </mat-step>
 </mat-horizontal-stepper>
