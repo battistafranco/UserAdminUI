@@ -15,13 +15,16 @@ RUN npm install
 # Get all the code needed to run the app
 COPY . /useradminui
 
-EXPOSE 4200
+EXPOSE 4201
 
 RUN $(npm bin)/ng build --prod
 
-FROM nginx:1.15.8-alpine
+FROM nginx:1.15
 
 
 COPY --from=node /useradminui/dist/ /usr/share/nginx/html
 
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+#COPY --from=node /nginx.conf /etc/nginx/conf.d/default.conf
+
+

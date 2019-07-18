@@ -14,7 +14,7 @@
     <app-apps-list></app-apps-list>
   </mat-step>
 
-  <mat-step  [stepControl]="menusFormGroup">
+  <mat-step [stepControl]="menusFormGroup">
     <ng-template matStepLabel>{{ "MENUES" | translate }}</ng-template>
     <app-menus-list></app-menus-list>
   </mat-step>
@@ -30,27 +30,80 @@
       <mat-card class="example-card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title class="text">OK!</mat-card-title>
-          <mat-card-subtitle class="subtex">Formulario de alta finalizado</mat-card-subtitle>
-        </mat-card-header>
-
-        <mat-card-content class="text">
+          <mat-card-title class="text">Formulario de alta finalizado!</mat-card-title>
+          <mat-card-subtitle class="subtex">
             Presione el botón Finalizar para completar el proceso.
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="text">
+          <mat-accordion multi="true">
+            <mat-expansion-panel expanded="true">
+              <mat-expansion-panel-header>
+                <h4>Info. Personal</h4>
+              </mat-expansion-panel-header>
+              <ul>
+                <li>
+                  Usuario:<b> fbattista</b>
+                </li>
+                <li> Nombre y Apellido: <b> Franco Battista</b></li>
+                <li> DNI: <b>32542761</b></li>
+                <li> Email: <b>battistafranco@gmail.com</b></li>
+                <li> Teléfono: <b>3462613343</b></li>
+
+                <li> Rol: <b>Administrator</b></li>
+              </ul>
+
+            </mat-expansion-panel>
+            <mat-expansion-panel expanded="true">
+              <mat-expansion-panel-header>
+                <h4>Filtros</h4>
+              </mat-expansion-panel-header>
+              <ul>
+                <li>
+                  Miembro Compensador: <b>89</b>
+                </li>
+                <li>
+                  Cuenta Compensación: <b>1089</b>
+                </li>
+              </ul>
+            </mat-expansion-panel>
+            <mat-expansion-panel expanded="true">
+              <mat-expansion-panel-header>
+                <h4>Apps</h4>
+              </mat-expansion-panel-header>
+              <ul>
+                <li>AP5</li>
+                <li>RMv4</li>
+              </ul>
+
+            </mat-expansion-panel>
+            <mat-expansion-panel expanded="true">
+              <mat-expansion-panel-header>
+                <h4>Permisos Especiales</h4>
+              </mat-expansion-panel-header>
+              <ul>
+                <li>Risk Manager</li>
+
+              </ul>
+
+            </mat-expansion-panel>
+
+          </mat-accordion>
         </mat-card-content>
-     
+
       </mat-card>
     </div>
-    <div style="margin-top: 5px" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px" fxLayoutAlign="flex-end">
-        <button (click)="submit()" mat-raised-button
-            color="primary" type="button" matStepperNext>
-            {{ "FINALIZAR" | translate }}
-        </button>
-        <button mat-raised-button class="action-button" matStepperPrevious color="default">
-            {{ "ATRAS" | translate }}
-        </button>
-        <button mat-raised-button  class="action-button"  color="warn">
-            {{ "CANCELAR" | translate }}
-        </button>
+    <div style="margin-top: 5px" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px"
+      fxLayoutAlign="flex-end">
+      <button (click)="submit()" mat-raised-button color="primary" type="button" matStepperNext>
+        {{ "FINALIZAR" | translate }}
+      </button>
+      <button mat-raised-button class="action-button" matStepperPrevious color="default">
+        {{ "ATRAS" | translate }}
+      </button>
+      <button mat-raised-button class="action-button" color="warn">
+        {{ "CANCELAR" | translate }}
+      </button>
 
     </div>
   </mat-step>

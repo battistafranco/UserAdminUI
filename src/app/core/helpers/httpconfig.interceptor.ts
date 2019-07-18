@@ -17,7 +17,7 @@ import { AuthService } from '../auth/services/auth.service';
 export class HttpConfigInterceptor implements HttpInterceptor {
     constructor(public toastrService: ToastrService, private authService: AuthService) { }
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-      
+        
         let currentUser = this.authService.currentUserValue;
         if (currentUser && currentUser.token) {
             request = request.clone({ headers: request.headers.set('Authorization', 'Token ' + currentUser.token) });

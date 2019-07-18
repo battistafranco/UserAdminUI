@@ -24,13 +24,16 @@ export class AppComponent implements OnInit {
     private authenticationService: AuthService,
     private _sidenavService: SidenavService
   ) {
-    this.currentUser$ = this.authenticationService.getCurrentUser();
-    this._sidenavService.sideNavState$.subscribe(res => {
-      this.onSideNavChange = res;
-    });
+    
+   
   }
 
   ngOnInit() {
+    this.currentUser$ = this.authenticationService.currentUser;
+
+    this._sidenavService.sideNavState$.subscribe(res => {
+      this.onSideNavChange = res;
+    });
     // this.themeClass = newThemeClass;
     // // remove old theme class and add new theme class
     // // we're removing any css class that contains '-theme' string but your theme classes can follow any pattern

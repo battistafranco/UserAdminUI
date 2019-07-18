@@ -27,7 +27,7 @@ export class UserFiltersFormComponent implements OnInit {
   // filter formgroup
   createFilter(): FormGroup {
     return this.fb.group({     
-      filterLabel: ['Cuenta Compensacion'],
+      filterLabel: ['Miembro Compensador'],
       filterValue: [null, Validators.compose([Validators.required])]
     });
   }
